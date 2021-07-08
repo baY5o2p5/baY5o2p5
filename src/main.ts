@@ -3,13 +3,14 @@ import './style.css'
 // import 'normalize.css'
 // import  $ from "jquery";
 import $ = require('jquery');
+import { GiftPoll } from "./controller";
 
 import { DragGesture, UserDragConfig } from "@use-gesture/vanilla";
 
 import anime, { AnimeInstance } from 'animejs';
 
 
-import { Observable, Observer, fromEvent } from "rxjs"
+
 
 const el = document.getElementById('test') as HTMLElement
 
@@ -47,23 +48,7 @@ let running_dislike = new G.HoverGesture(
 )
 running_dislike.destroy()
 
-fromEvent(dislike_btn, 'touchstart').subscribe(
-    (event) => {
-        event.preventDefault()
-        event as TouchEvent
-        // console.log(event)
-        console.log('touchsttart');
-
-        const x = Math.random() * 500;
-        const y = Math.random() * 500;
-        anime({
-            targets: dislike_btn,
-            translateX: x,
-            translateY: y,
-            duration: 1500,
-        })
-    }
-);
+new GiftPoll($("#giftpoll"))
 
 let wh1 = `${$('body').height()}`
 const wh = `Height:${$("body").height()};Width:${$('body').width()}`

@@ -40,6 +40,9 @@ module.exports = {
                     copy: [{
                         source: './src/*.css',
                         destination: './src/dist'
+                    }, {
+                        source: './src/imgs/*',
+                        destination: './dist/imgs'
                     }]
                 },
                 onEnd: {
@@ -47,7 +50,7 @@ module.exports = {
                         source: './index.html',
                         destination: './dist/index.html'
                     }],
-                    delete:['./dist/webpack.config.js']
+                    delete: ['./dist/webpack.config.js']
                 },
 
             }
